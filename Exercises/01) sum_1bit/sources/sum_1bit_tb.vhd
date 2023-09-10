@@ -1,5 +1,5 @@
 -- Author: Francesco Cavina <francescocavina98@gmail.com>
--- Brief:  This the testbench of a 1 bit full adder
+-- Brief:  This is the testbench of a 1 bit full adder
 
 library IEEE;
 use IEEE.std_logic_1164.all;
@@ -29,8 +29,11 @@ begin
     -- Description
 
     x_tb  <= '1' after 200 ns, '0' after 400 ns;
+    -- x_tb <= not x_tb after 200 ns;
     y_tb  <= '1' after 100 ns, '0' after 200 ns, '1' after 300 ns, '0' after 400 ns;
+    -- y_tb <= not y_tb after 100 ns;
     ci_tb <= '1' after  50 ns, '0' after 100 ns, '1' after 150 ns, '0' after 200 ns, '1' after 250 ns, '0' after 300 ns, '1' after 350 ns, '0' after 400 ns;
+    -- ci_tb = not ci_tb after 50 ns;
 
     DUT: sum_1bit
         port map(

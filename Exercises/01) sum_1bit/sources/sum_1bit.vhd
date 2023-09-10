@@ -1,5 +1,5 @@
 -- Author: Francesco Cavina <francescocavina98@gmail.com>
--- Brief:  This a HW description for a 1 bit full adder
+-- Brief:  This is the HW description for a 1 bit full adder
 
 library IEEE;
 use IEEE.std_logic_1164.all;
