@@ -1,0 +1,95 @@
+$date
+  Sat Sep  9 23:44:41 2023
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module sum_1bit_tb $end
+$var reg 1 ! x_tb $end
+$var reg 1 " y_tb $end
+$var reg 1 # ci_tb $end
+$var reg 1 $ z_tb $end
+$var reg 1 % co_tb $end
+$scope module dut $end
+$var reg 1 & x_i $end
+$var reg 1 ' y_i $end
+$var reg 1 ( ci_i $end
+$var reg 1 ) z_o $end
+$var reg 1 * co_o $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+0!
+0"
+0#
+0$
+0%
+0&
+0'
+0(
+0)
+0*
+#50000000
+1#
+1$
+1(
+1)
+#100000000
+1"
+0#
+1'
+0(
+#150000000
+1#
+0$
+1%
+1(
+0)
+1*
+#200000000
+1!
+0"
+0#
+1$
+0%
+1&
+0'
+0(
+1)
+0*
+#250000000
+1#
+0$
+1%
+1(
+0)
+1*
+#300000000
+1"
+0#
+1'
+0(
+#350000000
+1#
+1$
+1(
+1)
+#400000000
+0!
+0"
+0#
+0$
+0%
+0&
+0'
+0(
+0)
+0*

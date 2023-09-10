@@ -1,0 +1,7 @@
+v 4
+file . "../sources/sum_1bit.vhd" "43232758dfaae14927d97bcf9eb0043a50e80477" "20230910024441.106":
+  entity sum_1bit at 1( 0) + 0 on 15;
+  architecture sum_1bit_arch of sum_1bit at 14( 247) + 0 on 16;
+file . "../sources/sum_1bit_tb.vhd" "a5454e834524b61ae8350f40079363743d1889ff" "20230910024441.107":
+  entity sum_1bit_tb at 1( 0) + 0 on 17;
+  architecture sum_1bit_tb_arch of sum_1bit_tb at 7( 91) + 0 on 18;
