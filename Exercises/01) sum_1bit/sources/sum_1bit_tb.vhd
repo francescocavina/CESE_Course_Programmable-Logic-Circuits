@@ -27,7 +27,6 @@ architecture sum_1bit_tb_arch of sum_1bit_tb is
 
 begin
     -- Description
-
     x_tb  <= '1' after 200 ns, '0' after 400 ns;
     -- x_tb <= not x_tb after 200 ns;
     y_tb  <= '1' after 100 ns, '0' after 200 ns, '1' after 300 ns, '0' after 400 ns;
