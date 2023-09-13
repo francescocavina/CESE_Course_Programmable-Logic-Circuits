@@ -1,0 +1,10 @@
+v 4
+file . "../sources/ffd.vhd" "17e90f1040fc311563992c5ec89bed793885a671" "20230913024621.839":
+  entity ffd at 4( 115) + 0 on 15;
+  architecture ffd_arch of ffd at 17( 356) + 0 on 16;
+file . "../sources/reg_2bit.vhd" "a406715be86569d51e362c196c5c76e8d2185b6c" "20230913024621.839":
+  entity reg_2bit at 4( 118) + 0 on 17;
+  architecture reg_2bit_arch of reg_2bit at 17( 407) + 0 on 18;
+file . "../sources/reg_2bit_tb.vhd" "5fe738e79f60a1d483daeb6d03a87b8336e9010a" "20230913024621.840":
+  entity reg_2bit_tb at 4( 118) + 0 on 19;
+  architecture reg_2bit_tb_arch of reg_2bit_tb at 10( 209) + 0 on 20;
