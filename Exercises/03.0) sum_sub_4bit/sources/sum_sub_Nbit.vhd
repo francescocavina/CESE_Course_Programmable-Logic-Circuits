@@ -30,7 +30,7 @@ begin
         if sel_i = '0' then
             res_aux <= unsigned('0' & x_i & ci_i) + unsigned('0' & y_i & '1');
         else
-            res_aux <= unsigned('0' & x_i & ci_i) - unsigned('0' & y_i & '1');
+            res_aux <= unsigned('0' & x_i & '1') + unsigned('0' & (not y_i) & '1');
         end if;
     end process;    
 
