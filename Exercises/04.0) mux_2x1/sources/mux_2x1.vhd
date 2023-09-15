@@ -16,9 +16,9 @@ end entity mux_2x1;
 architecture mux_2x1_arch of mux_2x1 is
     -- Declaration
 
-    begin
-        -- Description
-        c_o <= (a_i and (not sel_i)) or (b_i and sel_i);
+begin
+    -- Description
+    c_o <= (a_i and (not sel_i)) or (b_i and sel_i);
 
-        -- c_o <= a_i when sel_i = 0 else b_i;
+    -- c_o <= a_i when sel_i = 0 else b_i;
 end architecture mux_2x1_arch;

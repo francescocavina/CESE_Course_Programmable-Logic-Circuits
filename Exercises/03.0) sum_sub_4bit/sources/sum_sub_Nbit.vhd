@@ -23,15 +23,18 @@ architecture sum_sub_Nbit_arch of sum_sub_Nbit is
     -- Declaration
     signal res_aux: unsigned(N+1 downto 0);
 
-    begin
-        -- Description
+begin
+    -- Description
+    process(x_i, y_i, ci_i, sel_i)
+    begin    
         if sel_i = '0' then
             res_aux <= unsigned('0' & x_i & ci_i) + unsigned('0' & y_i & '1');
         else
             res_aux <= unsigned('0' & x_i & ci_i) - unsigned('0' & y_i & '1');
         end if;
+    end process;    
 
-        z_o <= std_logic_vector(res_aux(N downto 1));
-        co_o <= res_aux(N+1);    
+    z_o <= std_logic_vector(res_aux(N downto 1));
+    co_o <= res_aux(N+1);    
 
 end architecture sum_sub_Nbit_arch;

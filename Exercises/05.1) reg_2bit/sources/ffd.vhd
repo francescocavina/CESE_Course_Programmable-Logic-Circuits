@@ -17,18 +17,18 @@ end entity ffd;
 architecture ffd_arch of ffd is
     -- Declaration
 
+begin
+    -- Description
+    process(clk_i) is
     begin
-        -- Description
-        process(clk_i) is
-        begin
-            if rising_edge(clk_i) then
-                if rst_i = '1' then
-                    q_o <= '0';
-                elsif ena_i = '1' then
-                    q_o <= d_i;
-                end if;         
-            end if;      
-        end process;    
+        if rising_edge(clk_i) then
+            if rst_i = '1' then
+                q_o <= '0';
+            elsif ena_i = '1' then
+                q_o <= d_i;
+            end if;         
+        end if;      
+    end process;    
 end architecture ffd_arch;
 
 

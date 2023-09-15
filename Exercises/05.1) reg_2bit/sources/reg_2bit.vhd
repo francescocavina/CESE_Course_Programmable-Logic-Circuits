@@ -26,23 +26,23 @@ architecture reg_2bit_arch of reg_2bit is
         );
     end component ffd;
 
-    begin
-        -- Description
-        ffd0_inst: ffd
-            port map(
-                d_i   => d_i(0),
-                ena_i => ena_i,
-                rst_i => rst_i,
-                clk_i => clk_i,
-                q_o   => q_o(0)
-            );
+begin
+    -- Description
+    ffd0_inst: ffd
+        port map(
+            d_i   => d_i(0),
+            ena_i => ena_i,
+            rst_i => rst_i,
+            clk_i => clk_i,
+            q_o   => q_o(0)
+        );
 
-        ffd1_inst: ffd
-            port map(
-                d_i   => d_i(1),
-                ena_i => ena_i,
-                rst_i => rst_i,
-                clk_i => clk_i,
-                q_o   => q_o(1)
-            );
+    ffd1_inst: ffd
+        port map(
+            d_i   => d_i(1),
+            ena_i => ena_i,
+            rst_i => rst_i,
+            clk_i => clk_i,
+            q_o   => q_o(1)
+        );
 end architecture reg_2bit_arch;

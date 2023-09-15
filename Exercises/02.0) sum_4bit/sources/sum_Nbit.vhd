@@ -23,10 +23,10 @@ architecture sum_Nbit_arch of sum_Nbit is
     -- Declaration
     signal sum_aux: unsigned(N+1 downto 0);
 
-    begin
-        -- Description
-        sum_aux <= unsigned('0' & x_i & ci_i) + unsigned('0' & y_i & '1');
-        z_o <= std_logic_vector(sum_aux(N downto 1));
-        co_o <= sum_aux(N+1);
+begin
+    -- Description
+    sum_aux <= unsigned('0' & x_i & ci_i) + unsigned('0' & y_i & '1');
+    z_o <= std_logic_vector(sum_aux(N downto 1));
+    co_o <= sum_aux(N+1);
 
 end architecture sum_Nbit_arch;

@@ -29,22 +29,21 @@ architecture sum_4bit_tb_arch of sum_4bit_tb is
     signal z_tb:   std_logic_vector(N_tb-1 downto 0);
     signal co_tb:  std_logic;
 
-    begin
-        -- Description
+begin
+    -- Description
+    x_tb  <= "1001" after 100 ns, "0011" after 200 ns;
+    y_tb  <= "0011" after 100 ns, "1000" after 200 ns;
+    ci_tb <=    '1' after 100 ns,    '0' after 200 ns;
 
-        x_tb  <= "1001" after 100 ns, "0011" after 200 ns;
-        y_tb  <= "0011" after 100 ns, "1000" after 200 ns;
-        ci_tb <=    '1' after 100 ns,    '0' after 200 ns;
-
-        DUT: sum_Nbit
-            generic map(
-                N => N_tb
-            )
-            port map(
-                x_i  => x_tb,
-                y_i  => y_tb,
-                ci_i => ci_tb,
-                z_o  => z_tb,
-                co_o => co_tb
-            );
+    DUT: sum_Nbit
+        generic map(
+            N => N_tb
+        )
+        port map(
+            x_i  => x_tb,
+            y_i  => y_tb,
+            ci_i => ci_tb,
+            z_o  => z_tb,
+            co_o => co_tb
+        );
 end architecture sum_4bit_tb_arch;
