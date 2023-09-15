@@ -3,7 +3,8 @@
 
 library IEEE;
 use IEEE.std_logic_1164.all;
-use IEEE.std_logic_unsigned.all;
+-- use IEEE.std_logic_unsigned.all;
+use IEEE.numeric_std.ALL;
 
 entity sum_Nbit is
     generic(
@@ -14,7 +15,7 @@ entity sum_Nbit is
         y_i:  in  std_logic_vector(N-1 downto 0);
         ci_i: in  std_logic;
         z_o:  out std_logic_vector(N-1 downto 0);
-        co_o: out std_logic_vector(N-1 downto 0)
+        co_o: out std_logic
     );
 end entity sum_Nbit;
 
