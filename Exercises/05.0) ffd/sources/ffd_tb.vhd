@@ -20,17 +20,17 @@ architecture ffd_tb_arch of ffd_tb is
     end component ffd;
 
     signal d_tb:    std_logic := '0';
-    signal ena_tb:  std_logic := '0';
+    signal ena_tb:  std_logic := '1';
     signal rst_tb:  std_logic := '0';
-    signal clk_tb:  std_logic := '0';
+    signal clk_tb:  std_logic := '1';
     signal q_tb:    std_logic;
 
 begin
     -- Description
     clk_tb <= not clk_tb after  10 ns;
     d_tb   <= not   d_tb after 100 ns;
-    ena_tb <= not ena_tb after 200 ns;
-    rst_tb <= not rst_tb after 500 ns;
+    --ena_tb <= not ena_tb after 200 ns;
+    --rst_tb <= not rst_tb after 500 ns;
 
     DUT: ffd
         port map(

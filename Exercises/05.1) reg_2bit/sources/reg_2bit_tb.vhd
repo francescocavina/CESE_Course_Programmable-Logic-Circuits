@@ -1,5 +1,5 @@
 -- Author: Francesco Cavina <francescocavina98@gmail.com>
--- Brief:  This is the HW description for a 2 bit register
+-- Brief:  This is the testbench of a 2 bit register
 
 library IEEE;
 use IEEE.std_logic_1164.all;
