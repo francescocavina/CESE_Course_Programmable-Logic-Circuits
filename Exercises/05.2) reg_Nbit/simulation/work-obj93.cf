@@ -1,0 +1,10 @@
+v 4
+file . "../sources/reg_Nbit_tb.vhd" "cb2c3ffe124d696fcab4b8578c46ced346883406" "20230919022721.976":
+  entity reg_nbit_tb at 4( 113) + 0 on 63;
+  architecture reg_nbit_tb_arch of reg_nbit_tb at 11( 230) + 0 on 64;
+file . "../sources/reg_Nbit.vhd" "12857d3bd1a0e3998823935a65b276010c883777" "20230919022721.975":
+  entity reg_nbit at 4( 118) + 0 on 61;
+  architecture reg_nbit_arch of reg_nbit at 20( 455) + 0 on 62;
+file . "../sources/ffd.vhd" "d95d83c207da6914f0d30a9fcd974737d4e2e29b" "20230919022721.975":
+  entity ffd at 4( 115) + 0 on 59;
+  architecture ffd_arch of ffd at 17( 356) + 0 on 60;
