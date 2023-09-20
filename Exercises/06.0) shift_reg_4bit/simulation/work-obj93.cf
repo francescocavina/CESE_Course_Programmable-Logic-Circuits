@@ -1,0 +1,10 @@
+v 4
+file . "../sources/shift_reg_4bit_tb.vhd" "d0a79bac5e0f38225cbb6894c3821b578ea2daa8" "20230920035155.000":
+  entity shift_reg_4bit_tb at 4( 119) + 0 on 15;
+  architecture shift_reg_4bit_tb_arch of shift_reg_4bit_tb at 10( 222) + 0 on 16;
+file . "../sources/shift_reg_4bit.vhd" "f701defd2d65721251e3626df684a43e7ea487f7" "20230920035154.999":
+  entity shift_reg_4bit at 4( 124) + 0 on 13;
+  architecture shift_reg_4bit_arch of shift_reg_4bit at 17( 402) + 0 on 14;
+file . "../sources/ffd.vhd" "dea2a4adda7e258b802fb83f1aca6a9b1071e5e3" "20230920035154.998":
+  entity ffd at 4( 115) + 0 on 11;
+  architecture ffd_arch of ffd at 17( 356) + 0 on 12;

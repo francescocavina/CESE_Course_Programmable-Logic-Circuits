@@ -1,0 +1,7 @@
+v 4
+file . "../sources/shift_reg_4bit_tb.vhd" "e0b8ff3a598504e9a5a14b1e4ac8708f94ca7e60" "20230920043352.866":
+  entity shift_reg_4bit_tb at 4( 118) + 0 on 37;
+  architecture shift_reg_4bit_tb_arch of shift_reg_4bit_tb at 10( 221) + 0 on 38;
+file . "../sources/shift_reg_4bit.vhd" "284ae8a68480550a6735bf231018b707fa9dabfa" "20230920043352.866":
+  entity shift_reg_4bit at 4( 124) + 0 on 35;
+  architecture shift_reg_4bit_arch of shift_reg_4bit at 18( 428) + 0 on 36;

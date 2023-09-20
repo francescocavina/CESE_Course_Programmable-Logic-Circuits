@@ -1,0 +1,41 @@
+-- Author: Francesco Cavina <francescocavina98@gmail.com>
+-- Brief:  This is the testbench of a 4 bit shift register
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity shift_reg_4bit_tb is
+end entity shift_reg_4bit_tb;
+
+architecture shift_reg_4bit_tb_arch of shift_reg_4bit_tb is
+    -- Declaration
+    component shift_reg_4bit is
+        port(
+            input_i:  in  std_logic;
+            ena_i:    in  std_logic;
+            rst_i:    in  std_logic;
+            clk_i:    in  std_logic;
+            output_o: out std_logic
+        );
+    end component shift_reg_4bit;
+
+    signal   input_tb:  std_logic := '0';
+    signal   ena_tb:    std_logic := '1';
+    signal   rst_tb:    std_logic := '0';
+    signal   clk_tb:    std_logic := '0';
+    signal   output_tb: std_logic;
+
+begin
+    -- Description
+    clk_tb   <= not(clk_tb) after 50 ns;
+    input_tb <= '1' after 250 ns, '0' after 450 ns, '1' after 650 ns, '0' after 850 ns;
+
+    DUT: shift_reg_4bit 
+        port map(
+            input_i  => input_tb,
+            ena_i    => ena_tb,
+            rst_i    => rst_tb,
+            clk_i    => clk_tb,
+            output_o => output_tb
+        );
+end architecture shift_reg_4bit_tb_arch;

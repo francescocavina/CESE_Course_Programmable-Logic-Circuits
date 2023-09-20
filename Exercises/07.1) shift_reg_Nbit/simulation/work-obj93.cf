@@ -1,0 +1,7 @@
+v 4
+file . "../sources/shift_reg_Nbit_tb.vhd" "734eff1a03c463a6d2f6e0298df5efdfcd9572d9" "20230920044336.897":
+  entity shift_reg_nbit_tb at 4( 118) + 0 on 21;
+  architecture shift_reg_nbit_tb_arch of shift_reg_nbit_tb at 10( 221) + 0 on 22;
+file . "../sources/shift_reg_Nbit.vhd" "4db3ca4c7feb222a15f2de80e53bce4285f740f5" "20230920044336.896":
+  entity shift_reg_nbit at 4( 124) + 0 on 19;
+  architecture shift_reg_nbit_arch of shift_reg_nbit at 21( 472) + 0 on 20;
