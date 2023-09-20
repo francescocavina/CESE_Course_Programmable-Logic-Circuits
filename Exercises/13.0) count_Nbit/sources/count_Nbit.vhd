@@ -5,7 +5,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity cont_Nbit is
+entity count_Nbit is
     generic(
         N: natural := 4
     );
@@ -16,9 +16,9 @@ entity cont_Nbit is
         q_o:   out std_logic_vector(N-1 downto 0);
         max_o: out std_logic
     );
-end entity cont_Nbit;
+end entity count_Nbit;
 
-architecture cont_Nbit_arch of cont_Nbit is
+architecture count_Nbit_arch of count_Nbit is
     -- Declaration
     signal orOutput:   std_logic;
     signal andOutput:  std_logic;
@@ -28,22 +28,21 @@ architecture cont_Nbit_arch of cont_Nbit is
 
 begin
     -- Description
-    reg_Nbit_ins: entity work.reg_Nbit
-        generic map(
-            N => N
-        )
-        port map(
-            clk_i => clk_i,
-            rst_i => orOutput,
-            ena_i => ena_i,
-            d_i   => sumOutput,
-            q_o   => qOutput
-        );
+    process(clk_i, orOutput)
+    begin
+        if orOutput = '1' then
+            qOutput <= (others => '0');
+        elsif rising_edge(clk_i) then
+            if ena_i = '1' then
+                qOutput <= sumOutput; 
+            end if;    
+        end if;
+    end process;    
 
-    sumOutput  <= std_logic_vector(unsigned(qOutput) + 1);    
+    sumOutput  <= std_logic_vector(unsigned(qOutput) + 1);
     compOutput <= '1' when qOutput = std_logic_vector(to_unsigned((2**N)-1, N)) else '0';
     orOutput   <= rst_i or andOutput;
     andOutput  <= ena_i and compOutput;
     max_o   <= compOutput;
     q_o     <= qOutput;
-end architecture cont_Nbit_arch;
+end architecture count_Nbit_arch;

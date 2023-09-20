@@ -3,12 +3,12 @@
 #! /bin/bash
 
 # Compile the VHDL files
-ghdl -a ../sources/cont_4bit.vhd ../sources/cont_4bit_tb.vhd
-ghdl -s ../sources/cont_4bit.vhd ../sources/cont_4bit_tb.vhd
+ghdl -a ../sources/count_4bit.vhd ../sources/count_4bit_tb.vhd
+ghdl -s ../sources/count_4bit.vhd ../sources/count_4bit_tb.vhd
 
 # Elaborate and run the testbench
-ghdl -e cont_4bit_tb
-ghdl -r cont_4bit_tb --vcd=cont_4bit_tb.vcd --stop-time=11000ns
+ghdl -e count_4bit_tb
+ghdl -r count_4bit_tb --vcd=count_4bit_tb.vcd --stop-time=11000ns
 
 # Open the waveform using GTKWave
-gtkwave cont_4bit_tb.vcd
+gtkwave count_4bit_tb.vcd

@@ -1,5 +1,5 @@
 $date
-  Tue Sep 19 23:42:53 2023
+  Wed Sep 20 00:12:34 2023
 $end
 $version
   GHDL v0
@@ -13,7 +13,7 @@ $scope module std_logic_1164 $end
 $upscope $end
 $scope module numeric_std $end
 $upscope $end
-$scope module cont_nbit_tb $end
+$scope module count_nbit_tb $end
 $var reg 1 ! clk_tb $end
 $var reg 1 " rst_tb $end
 $var reg 1 # ena_tb $end

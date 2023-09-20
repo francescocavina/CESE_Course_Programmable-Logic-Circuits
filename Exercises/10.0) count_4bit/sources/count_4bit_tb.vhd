@@ -4,12 +4,12 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity cont_4bit_tb is
-end entity cont_4bit_tb;
+entity count_4bit_tb is
+end entity count_4bit_tb;
 
-architecture cont_4bit_tb_arch of cont_4bit_tb is
+architecture count_4bit_tb_arch of count_4bit_tb is
     -- Declaration
-    component cont_4bit is
+    component count_4bit is
          port(
             clk_i: in  std_logic;
             rst_i: in  std_logic;
@@ -17,7 +17,7 @@ architecture cont_4bit_tb_arch of cont_4bit_tb is
             q_o:   out std_logic_vector(3 downto 0);
             max_o: out std_logic
         );
-    end component cont_4bit;
+    end component count_4bit;
 
     signal   clk_tb:  std_logic := '0';
     signal   rst_tb:  std_logic := '1';
@@ -32,7 +32,7 @@ begin
     rst_tb <= '0' after  10 ns, '1' after 800 ns, '0' after 900 ns;
     --ena_tb <= '0' after 500 ns, '1' after 700 ns;
 
-    DUT: cont_4bit
+    DUT: count_4bit
          port map(
             clk_i => clk_tb,
             rst_i => rst_tb,
@@ -40,4 +40,4 @@ begin
             q_o   => q_tb,
             max_o => max_tb
         );
-end architecture cont_4bit_tb_arch;
+end architecture count_4bit_tb_arch;

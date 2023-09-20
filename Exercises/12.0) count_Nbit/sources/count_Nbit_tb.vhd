@@ -4,12 +4,12 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity cont_Nbit_tb is
-end entity cont_Nbit_tb;
+entity count_Nbit_tb is
+end entity count_Nbit_tb;
 
-architecture cont_Nbit_tb_arch of cont_Nbit_tb is
+architecture count_Nbit_tb_arch of count_Nbit_tb is
     -- Declaration
-    component cont_Nbit is
+    component count_Nbit is
         generic(
             N: natural := 4
         );
@@ -20,7 +20,7 @@ architecture cont_Nbit_tb_arch of cont_Nbit_tb is
             q_o:   out std_logic_vector(N-1 downto 0);
             max_o: out std_logic
         );
-    end component cont_Nbit;
+    end component count_Nbit;
 
     constant N_tb:    natural   := 5;
     signal   clk_tb:  std_logic := '0';
@@ -36,7 +36,7 @@ begin
     rst_tb <= '0' after  10 ns, '1' after 800 ns, '0' after 900 ns;
     --ena_tb <= '0' after 500 ns, '1' after 700 ns;
 
-    DUT: cont_Nbit
+    DUT: count_Nbit
         generic map(
             N => N_tb
         )
@@ -47,4 +47,4 @@ begin
             q_o   => q_tb,
             max_o => max_tb
         );
-end architecture cont_Nbit_tb_arch;
+end architecture count_Nbit_tb_arch;

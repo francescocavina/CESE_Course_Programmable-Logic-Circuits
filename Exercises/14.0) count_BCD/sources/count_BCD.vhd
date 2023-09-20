@@ -5,7 +5,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity cont_4bit is
+entity count_BCD is
     port(
         clk_i: in  std_logic;
         rst_i: in  std_logic;
@@ -13,9 +13,9 @@ entity cont_4bit is
         q_o:   out std_logic_vector(3 downto 0);
         max_o: out std_logic
     );
-end entity cont_4bit;
+end entity count_BCD;
 
-architecture cont_4bit_arch of cont_4bit is
+architecture count_BCD_arch of count_BCD is
     -- Declaration
     signal orOutput:   std_logic;
     signal andOutput:  std_logic;
@@ -25,21 +25,22 @@ architecture cont_4bit_arch of cont_4bit is
 
 begin
     -- Description
-    process(clk_i, rst_i)
-    begin
-        if rst_i = '1' then
-            qOutput <= (others => '0');
-        elsif rising_edge(clk_i) then
-            if ena_i = '1' then
-                qOutput <= sumOutput; 
-            end if;    
-        end if;
-    end process;    
+    reg_Nbit_ins: entity work.reg_Nbit
+        generic map(
+            N => 4
+        )
+        port map(
+            clk_i => clk_i,
+            rst_i => orOutput,
+            ena_i => ena_i,
+            d_i   => sumOutput,
+            q_o   => qOutput
+        );
 
-    sumOutput  <= std_logic_vector(unsigned(qOutput) + 1);
-    compOutput <= '1' when qOutput = std_logic_vector(to_unsigned(15, 4)) else '0';
+    sumOutput  <= std_logic_vector(unsigned(qOutput) + 1);    
+    compOutput <= '1' when qOutput = std_logic_vector(to_unsigned(9, 4)) else '0';
     orOutput   <= rst_i or andOutput;
     andOutput  <= ena_i and compOutput;
     max_o   <= compOutput;
     q_o     <= qOutput;
-end architecture cont_4bit_arch;
+end architecture count_BCD_arch;

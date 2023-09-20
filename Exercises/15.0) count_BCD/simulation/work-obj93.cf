@@ -1,0 +1,7 @@
+v 4
+file . "../sources/count_BCD.vhd" "20a09ca06692a927f85c1b118effadde3fb5765f" "20230920031600.380":
+  entity count_bcd at 4( 124) + 0 on 15;
+  architecture count_bcd_arch of count_bcd at 18( 422) + 0 on 16;
+file . "../sources/count_BCD_tb.vhd" "eae62f53582773a7c3507c5963307fe089f31b30" "20230920031600.381":
+  entity count_bcd_tb at 4( 118) + 0 on 17;
+  architecture count_bcd_tb_arch of count_bcd_tb at 10( 211) + 0 on 18;
