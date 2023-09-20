@@ -8,7 +8,7 @@ ghdl -s ../sources/ffd.vhd ../sources/shift_reg_Nbit.vhd ../sources/shift_reg_Nb
 
 # Elaborate and run the testbench
 ghdl -e shift_reg_Nbit_tb
-ghdl -r shift_reg_Nbit_tb --vcd=shift_reg_Nbit_tb.vcd --stop-time=1000ns
+ghdl -r shift_reg_Nbit_tb --vcd=shift_reg_Nbit_tb.vcd --stop-time=3000ns
 
 # Open the waveform using GTKWave
 gtkwave shift_reg_Nbit_tb.vcd

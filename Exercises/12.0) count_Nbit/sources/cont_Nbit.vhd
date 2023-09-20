@@ -20,7 +20,6 @@ end entity cont_Nbit;
 
 architecture cont_Nbit_arch of cont_Nbit is
     -- Declaration
-
     signal orOutput:   std_logic;
     signal andOutput:  std_logic;
     signal sumOutput:  std_logic_vector(N-1 downto 0);
@@ -29,18 +28,19 @@ architecture cont_Nbit_arch of cont_Nbit is
 
 begin
     -- Description
-    process(clk_i, rst_i)
-    begin
-        if rst_i = '1' then
-            qOutput <= (others => '0');
-        elsif rising_edge(clk_i) then
-            if ena_i = '1' then
-                qOutput <= sumOutput; 
-            end if;    
-        end if;
-    end process;    
+    reg_Nbit_ins: entity work.reg_Nbit
+        generic map(
+            N => N
+        )
+        port map(
+            clk_i => clk_i,
+            rst_i => orOutput,
+            ena_i => ena_i,
+            d_i   => sumOutput,
+            q_o   => qOutput
+        );
 
-    sumOutput  <= std_logic_vector(unsigned(qOutput) + 1);
+    sumOutput  <= std_logic_vector(unsigned(qOutput) + 1);    
     compOutput <= '1' when qOutput = std_logic_vector(to_unsigned((2**N)-1, N)) else '0';
     orOutput   <= rst_i or andOutput;
     andOutput  <= ena_i and compOutput;

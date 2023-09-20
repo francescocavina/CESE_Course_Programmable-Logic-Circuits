@@ -9,24 +9,20 @@ end entity sum_4bit_tb;
 
 architecture sum_4bit_tb_arch of sum_4bit_tb is
     -- Declaration
-    component sum_Nbit is
-        generic(
-            N: natural := 4
-        );
+    component sum_4bit is
         port(    
-            x_i:  in  std_logic_vector(N-1 downto 0);
-            y_i:  in  std_logic_vector(N-1 downto 0);
+            x_i:  in  std_logic_vector(3 downto 0);
+            y_i:  in  std_logic_vector(3 downto 0);
             ci_i: in  std_logic;
-            z_o:  out std_logic_vector(N-1 downto 0);
+            z_o:  out std_logic_vector(3 downto 0);
             co_o: out std_logic
         );
-    end component sum_Nbit;  
+    end component sum_4bit;  
     
-    constant N_tb: natural := 4;
-    signal x_tb:   std_logic_vector(N_tb-1 downto 0) := (others => '0');
-    signal y_tb:   std_logic_vector(N_tb-1 downto 0) := (others => '0');
+    signal x_tb:   std_logic_vector(3 downto 0) := (others => '0');
+    signal y_tb:   std_logic_vector(3 downto 0) := (others => '0');
     signal ci_tb:  std_logic := '0';
-    signal z_tb:   std_logic_vector(N_tb-1 downto 0);
+    signal z_tb:   std_logic_vector(3 downto 0);
     signal co_tb:  std_logic;
 
 begin
@@ -35,10 +31,7 @@ begin
     y_tb  <= "0011" after 100 ns, "1000" after 200 ns;
     ci_tb <=    '1' after 100 ns,    '0' after 200 ns;
 
-    DUT: sum_Nbit
-        generic map(
-            N => N_tb
-        )
+    DUT: sum_4bit
         port map(
             x_i  => x_tb,
             y_i  => y_tb,

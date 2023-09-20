@@ -3,8 +3,8 @@
 #! /bin/bash
 
 # Compile the VHDL files
-ghdl -a -fsynopsys ../sources/sum_Nbit.vhd ../sources/sum_4bit_tb.vhd
-ghdl -s -fsynopsys ../sources/sum_Nbit.vhd ../sources/sum_4bit_tb.vhd
+ghdl -a -fsynopsys ../sources/sum_4bit.vhd ../sources/sum_4bit_tb.vhd
+ghdl -s -fsynopsys ../sources/sum_4bit.vhd ../sources/sum_4bit_tb.vhd
 
 # Elaborate and run the testbench
 ghdl -e sum_4bit_tb

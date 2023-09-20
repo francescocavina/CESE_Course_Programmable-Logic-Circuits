@@ -32,7 +32,7 @@ architecture shift_reg_Nbit_tb_arch of shift_reg_Nbit_tb is
 begin
     -- Description
     clk_tb   <= not(clk_tb) after 50 ns;
-    input_tb <= '1' after 50 ns, '0' after 100 ns, '1' after 150 ns, '0' after 200 ns, '1' after 250 ns, '0' after 300 ns;
+    input_tb <= '1' after 250 ns, '0' after 450 ns, '1' after 650 ns, '0' after 850 ns;
 
     DUT: shift_reg_Nbit 
         generic map(

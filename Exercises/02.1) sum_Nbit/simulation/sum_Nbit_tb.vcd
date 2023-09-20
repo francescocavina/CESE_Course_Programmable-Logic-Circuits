@@ -1,5 +1,5 @@
 $date
-  Tue Sep 19 23:25:38 2023
+  Tue Sep 19 23:28:40 2023
 $end
 $version
   GHDL v0
@@ -13,7 +13,7 @@ $scope module std_logic_1164 $end
 $upscope $end
 $scope module numeric_std $end
 $upscope $end
-$scope module sum_4bit_tb $end
+$scope module sum_nbit_tb $end
 $var reg 4 ! x_tb[3:0] $end
 $var reg 4 " y_tb[3:0] $end
 $var reg 1 # ci_tb $end

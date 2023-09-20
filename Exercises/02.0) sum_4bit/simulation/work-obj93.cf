@@ -1,7 +1,10 @@
 v 4
-file . "../sources/sum_4bit_tb.vhd" "13c11fd4ac28a1aa22038f0123c7223fbc780985" "20230915014639.979":
-  entity sum_4bit_tb at 4( 115) + 0 on 13;
-  architecture sum_4bit_tb_arch of sum_4bit_tb at 10( 206) + 0 on 14;
+file . "../sources/sum_4bit_tb.vhd" "0719e08968ad6bbdb7b79636261d661436ae5d91" "20230920022538.801":
+  entity sum_4bit_tb at 4( 115) + 0 on 21;
+  architecture sum_4bit_tb_arch of sum_4bit_tb at 10( 206) + 0 on 22;
 file . "../sources/sum_Nbit.vhd" "411174924668f1b91ce23546787e304270b80edb" "20230915014639.978":
   entity sum_nbit at 4( 121) + 0 on 11;
   architecture sum_nbit_arch of sum_nbit at 22( 536) + 0 on 12;
+file . "../sources/sum_4bit.vhd" "65bbc7b159ce9b5ff9c4c8266901cd5b3cd23fb6" "20230920022538.801":
+  entity sum_4bit at 4( 120) + 0 on 19;
+  architecture sum_4bit_arch of sum_4bit at 19( 485) + 0 on 20;
