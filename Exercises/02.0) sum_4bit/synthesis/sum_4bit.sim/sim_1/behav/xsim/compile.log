@@ -1,0 +1,4 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/francesco/Desktop/sum_4bit/sources/sum_4bit.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity sum_4bit
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/francesco/Desktop/sum_4bit/sources/sum_4bit_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity sum_4bit_tb

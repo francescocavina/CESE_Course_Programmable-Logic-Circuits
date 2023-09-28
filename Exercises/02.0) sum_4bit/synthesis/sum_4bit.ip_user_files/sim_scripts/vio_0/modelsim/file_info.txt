@@ -1,0 +1,1 @@
+vio_0.vhd,vhdl,xil_defaultlib,../../../../sum_4bit.srcs/sources_1/ip/vio_0/sim/vio_0.vhd,incdir="../../../../sum_4bit.srcs/sources_1/ip/vio_0/hdl/verilog"incdir="../../../../sum_4bit.srcs/sources_1/ip/vio_0/hdl"

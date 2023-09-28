@@ -11,7 +11,7 @@ entity sum_4bit is
         x_i:  in  std_logic_vector(3 downto 0);
         y_i:  in  std_logic_vector(3 downto 0);
         ci_i: in  std_logic;
-        z_o:  out std_logic_vector(3 downto 0);
+        z_o:  out std_logic_vector(3 downto 0); 
         co_o: out std_logic
     );
 end entity sum_4bit;
