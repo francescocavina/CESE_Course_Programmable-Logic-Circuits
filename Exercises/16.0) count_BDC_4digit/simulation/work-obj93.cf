@@ -1,0 +1,10 @@
+v 4
+file . "../sources/count_BCD_4digit_tb.vhd" "915d871ca8d0e752eb7f8cae6edf28b5e6c83b88" "20231002231816.249":
+  entity count_bcd_4digit_tb at 4( 109) + 0 on 27;
+  architecture count_bcd_4digit_tb_arch of count_bcd_4digit_tb at 11( 242) + 0 on 28;
+file . "../sources/count_BCD_4digit.vhd" "df333eb6fdb291efe9a88c5118767cd618267880" "20231002231816.249":
+  entity count_bcd_4digit at 4( 123) + 0 on 25;
+  architecture count_bcd_4digit_arch of count_bcd_4digit at 21( 590) + 0 on 26;
+file . "../sources/count_BCD.vhd" "dd3e51b821eee331c6b063ec4784d240fa84cfaa" "20231002231816.248":
+  entity count_bcd at 4( 115) + 0 on 23;
+  architecture count_bcd_arch of count_bcd at 18( 413) + 0 on 24;

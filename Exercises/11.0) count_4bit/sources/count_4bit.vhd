@@ -25,15 +25,15 @@ architecture count_4bit_arch of count_4bit is
 
 begin
     -- Description
-    process(clk_i, orOutput)
+    process(clk_i) is
     begin
-        if orOutput = '1' then
-            qOutput <= (others => '0');
-        elsif rising_edge(clk_i) then
-            if ena_i = '1' then
-                qOutput <= sumOutput; 
-            end if;    
-        end if;
+        if rising_edge(clk_i) then
+            if orOutput = '1' then
+                qOutput <= (others => '0');
+            elsif ena_i = '1' then
+                qOutput <= sumOutput;
+            end if;         
+        end if;      
     end process;    
 
     sumOutput  <= std_logic_vector(unsigned(qOutput) + 1);

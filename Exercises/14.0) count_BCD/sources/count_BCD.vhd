@@ -1,5 +1,5 @@
 -- Author: Francesco Cavina <francescocavina98@gmail.com>
--- Brief:  This is the HW description for a 4 bit binary counter
+-- Brief:  This is the HW description for a BCD counter
 
 library IEEE;
 use IEEE.std_logic_1164.all;

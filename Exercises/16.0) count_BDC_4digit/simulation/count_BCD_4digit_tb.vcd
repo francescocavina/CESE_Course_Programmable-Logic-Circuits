@@ -1,0 +1,173 @@
+$date
+  Mon Oct  2 20:18:16 2023
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module numeric_std $end
+$upscope $end
+$scope module count_bcd_4digit_tb $end
+$var reg 1 ! clk_tb $end
+$var reg 1 " rst_tb $end
+$var reg 1 # ena_tb $end
+$var reg 4 $ bcd0_tb[3:0] $end
+$var reg 4 % bcd1_tb[3:0] $end
+$var reg 4 & bcd2_tb[3:0] $end
+$var reg 4 ' bcd3_tb[3:0] $end
+$var reg 1 ( co_tb $end
+$scope module dut $end
+$var reg 1 ) clk_i $end
+$var reg 1 * rst_i $end
+$var reg 1 + ena_i $end
+$var reg 4 , bcd0_o[3:0] $end
+$var reg 4 - bcd1_o[3:0] $end
+$var reg 4 . bcd2_o[3:0] $end
+$var reg 4 / bcd3_o[3:0] $end
+$var reg 1 0 co_o $end
+$scope module count_bcd_inst $end
+$var reg 1 1 clk_i $end
+$var reg 1 2 rst_i $end
+$var reg 1 3 ena_i $end
+$var reg 4 4 q_o[3:0] $end
+$var reg 1 5 max_o $end
+$var reg 1 6 oroutput $end
+$var reg 1 7 andoutput $end
+$var reg 4 8 sumoutput[3:0] $end
+$var reg 4 9 qoutput[3:0] $end
+$var reg 1 : compoutput $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+0!
+0"
+0#
+bUUUU $
+b0000 %
+b0000 &
+b0000 '
+0(
+0)
+0*
+0+
+bUUUU ,
+b0000 -
+b0000 .
+b0000 /
+00
+01
+02
+03
+bUUUU 4
+05
+06
+07
+bXXXX 8
+bUUUU 9
+0:
+#20000000
+1#
+1+
+13
+#30000000
+1"
+1*
+12
+16
+#40000000
+0"
+0*
+02
+06
+#50000000
+1!
+bXXXX $
+1)
+bXXXX ,
+11
+bXXXX 4
+bXXXX 9
+#100000000
+0!
+0)
+01
+#150000000
+1!
+1)
+11
+#200000000
+0!
+0)
+01
+#250000000
+1!
+1)
+11
+#300000000
+0!
+0)
+01
+#350000000
+1!
+1)
+11
+#400000000
+0!
+0)
+01
+#450000000
+1!
+1)
+11
+#500000000
+0!
+0)
+01
+#550000000
+1!
+1)
+11
+#600000000
+0!
+0)
+01
+#650000000
+1!
+1)
+11
+#700000000
+0!
+0)
+01
+#750000000
+1!
+1)
+11
+#800000000
+0!
+0)
+01
+#850000000
+1!
+1)
+11
+#900000000
+0!
+0)
+01
+#950000000
+1!
+1)
+11
+#1000000000
+0!
+0)
+01

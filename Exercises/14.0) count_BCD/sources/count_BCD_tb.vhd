@@ -1,5 +1,5 @@
 -- Author: Francesco Cavina <francescocavina98@gmail.com>
--- Brief:  This is the testbench of a 4 bit binary counter
+-- Brief:  This is the testbench of a BCD counter
 
 library IEEE;
 use IEEE.std_logic_1164.all;
@@ -27,7 +27,6 @@ architecture count_BCD_tb_arch of count_BCD_tb is
 
 begin
     -- Description
-
     clk_tb <= not clk_tb after 10 ns;
     rst_tb <= '0' after  10 ns, '1' after 800 ns, '0' after 900 ns;
     --ena_tb <= '0' after 500 ns, '1' after 700 ns;
