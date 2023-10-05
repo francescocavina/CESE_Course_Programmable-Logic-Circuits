@@ -1,0 +1,125 @@
+$date
+  Thu Oct  5 07:39:55 2023
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module numeric_std $end
+$upscope $end
+$scope module floating_point_adder_tb $end
+$var reg 1 ! clk_tb $end
+$var reg 32 " a_tb[31:0] $end
+$var reg 32 # b_tb[31:0] $end
+$var reg 1 $ ci_tb $end
+$var reg 1 % rst_tb $end
+$var reg 32 & c_tb[31:0] $end
+$var reg 1 ' co_tb $end
+$scope module dut $end
+$var reg 1 ( clk_in $end
+$var reg 32 ) a_in[31:0] $end
+$var reg 32 * b_in[31:0] $end
+$var reg 1 + ci_in $end
+$var reg 1 , rst_in $end
+$var reg 32 - c_out[31:0] $end
+$var reg 1 . co_out $end
+$var reg 8 / exponent_a[7:0] $end
+$var reg 8 0 exponent_b[7:0] $end
+$var reg 24 1 mantissa_a[23:0] $end
+$var reg 24 2 mantissa_b[23:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+0!
+b00000000000000000000000000000000 "
+b00000000000000000000000000000000 #
+0$
+0%
+bUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU &
+U'
+0(
+b00000000000000000000000000000000 )
+b00000000000000000000000000000000 *
+0+
+0,
+bUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU -
+U.
+b00000000 /
+b00000000 0
+b100000000000000000000000 1
+b100000000000000000000000 2
+#50000000
+1!
+1(
+#100000000
+0!
+0(
+#150000000
+1!
+1(
+#200000000
+0!
+b00111111101011000010100011110110 "
+b01000000001000000000000000000000 #
+0(
+b00111111101011000010100011110110 )
+b01000000001000000000000000000000 *
+b01111111 /
+b10000000 0
+b101011000010100011110110 1
+b101000000000000000000000 2
+#250000000
+1!
+1(
+#300000000
+0!
+0(
+#350000000
+1!
+1(
+#400000000
+0!
+0(
+#450000000
+1!
+1(
+#500000000
+0!
+0(
+#550000000
+1!
+1(
+#600000000
+0!
+0(
+#650000000
+1!
+1(
+#700000000
+0!
+0(
+#750000000
+1!
+1(
+#800000000
+0!
+0(
+#850000000
+1!
+1(
+#900000000
+0!
+0(
+#950000000
+1!
+1(
+#1000000000
+0!
+0(

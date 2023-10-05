@@ -1,0 +1,7 @@
+v 4
+file . "../sources/floating_point_adder.vhd" "3db79358002b7ffd0367ecbc077931ceecce5142" "20231005103955.398":
+  entity floating_point_adder at 4( 124) + 0 on 71;
+  architecture floating_point_adder_arch of floating_point_adder at 30( 1290) + 0 on 72;
+file . "../sources/floating_point_adder_tb.vhd" "2455695eadbc5544152b7962901bc533c487aa03" "20231005103955.399":
+  entity floating_point_adder_tb at 4( 118) + 0 on 73;
+  architecture floating_point_adder_tb_arch of floating_point_adder_tb at 12( 282) + 0 on 74;
