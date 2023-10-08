@@ -1,0 +1,214 @@
+$date
+  Sun Oct  8 18:59:20 2023
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module numeric_std $end
+$upscope $end
+$scope module double_floating_point_adder_tb $end
+$var reg 1 ! clk_tb $end
+$var reg 64 " numa_tb[63:0] $end
+$var reg 64 # numb_tb[63:0] $end
+$var reg 1 $ init_tb $end
+$var reg 1 % rst_tb $end
+$var reg 64 & c_tb[63:0] $end
+$var reg 1 ' done_tb $end
+$scope module dut $end
+$var reg 1 ( clk_i $end
+$var reg 64 ) numa_i[63:0] $end
+$var reg 64 * numb_i[63:0] $end
+$var reg 1 + init_i $end
+$var reg 1 , rst_i $end
+$var reg 64 - c_o[63:0] $end
+$var reg 1 . done_o $end
+$comment current_state is not handled $end
+$comment next_state is not handled $end
+$var reg 12 / exponent_a[11:0] $end
+$var reg 12 0 exponent_b[11:0] $end
+$var reg 54 1 mantissa_a[53:0] $end
+$var reg 54 2 mantissa_b[53:0] $end
+$var reg 1 3 sign_a $end
+$var reg 1 4 sign_b $end
+$var reg 12 5 sum_exponent[11:0] $end
+$var reg 54 6 sum_mantissa[53:0] $end
+$var reg 1 7 sum_sign $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+0!
+b0011111111110101100001010001111010111000010100011110101110000101 "
+b0100000000000100000000000000000000000000000000000000000000000000 #
+0$
+0%
+bUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU &
+U'
+0(
+b0011111111110101100001010001111010111000010100011110101110000101 )
+b0100000000000100000000000000000000000000000000000000000000000000 *
+0+
+0,
+bUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU -
+U.
+bUUUUUUUUUUUU /
+bUUUUUUUUUUUU 0
+bUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU 1
+bUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU 2
+U3
+U4
+bUUUUUUUUUUUU 5
+bUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU 6
+U7
+#20000000
+1%
+0'
+1,
+0.
+#40000000
+0%
+0,
+#50000000
+1!
+1(
+#75000000
+1$
+1+
+#100000000
+0!
+0(
+#150000000
+1!
+1(
+b001111111111 /
+b010000000000 0
+b010101100001010001111010111000010100011110101110000101 1
+b010100000000000000000000000000000000000000000000000000 2
+03
+04
+#200000000
+0!
+0(
+#250000000
+1!
+1(
+b001010110000101000111101011100001010001111010111000010 1
+b010000000000 5
+#300000000
+0!
+0(
+#350000000
+1!
+1(
+b011110110000101000111101011100001010001111010111000010 6
+07
+#400000000
+0!
+0(
+#450000000
+1!
+1(
+#500000000
+0!
+0(
+#550000000
+1!
+b0100000000001110110000101000111101011100001010001111010111000010 &
+1'
+1(
+b0100000000001110110000101000111101011100001010001111010111000010 -
+1.
+#600000000
+0!
+0(
+#650000000
+1!
+1(
+#700000000
+0!
+0(
+#750000000
+1!
+1(
+#800000000
+0!
+0(
+#850000000
+1!
+1(
+#900000000
+0!
+0(
+#950000000
+1!
+1(
+#1000000000
+0!
+0(
+#1050000000
+1!
+1(
+#1100000000
+0!
+0(
+#1150000000
+1!
+1(
+#1200000000
+0!
+0(
+#1250000000
+1!
+1(
+#1300000000
+0!
+0(
+#1350000000
+1!
+1(
+#1400000000
+0!
+0(
+#1450000000
+1!
+1(
+#1500000000
+0!
+0(
+#1550000000
+1!
+1(
+#1600000000
+0!
+0(
+#1650000000
+1!
+1(
+#1700000000
+0!
+0(
+#1750000000
+1!
+1(
+#1800000000
+0!
+0(
+#1850000000
+1!
+1(
+#1900000000
+0!
+0(
+#1950000000
+1!
+1(
+#2000000000
+0!
+0(

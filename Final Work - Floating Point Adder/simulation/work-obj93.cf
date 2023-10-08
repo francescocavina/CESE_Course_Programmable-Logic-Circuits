@@ -1,7 +1,10 @@
 v 4
-file . "../sources/floating_point_adder.vhd" "3db79358002b7ffd0367ecbc077931ceecce5142" "20231005103955.398":
-  entity floating_point_adder at 4( 124) + 0 on 71;
-  architecture floating_point_adder_arch of floating_point_adder at 30( 1290) + 0 on 72;
-file . "../sources/floating_point_adder_tb.vhd" "2455695eadbc5544152b7962901bc533c487aa03" "20231005103955.399":
-  entity floating_point_adder_tb at 4( 118) + 0 on 73;
-  architecture floating_point_adder_tb_arch of floating_point_adder_tb at 12( 282) + 0 on 74;
+file . "../sources/double_floating_point_adder_tb.vhd" "a7c3e61f5886816214826eca8ae7f224c7413308" "20231008215919.994":
+  entity double_floating_point_adder_tb at 4( 125) + 0 on 13;
+  architecture double_floating_point_adder_tb_arch of double_floating_point_adder_tb at 12( 303) + 0 on 14;
+file . "../sources/floating_point_adder.vhd" "ece709ab8dfade10474d7508d357fe9a6da7121f" "20231008234448.229":
+  entity floating_point_adder at 4( 124) + 0 on 35;
+  architecture floating_point_adder_arch of floating_point_adder at 33( 1433) + 0 on 36;
+file . "../sources/single_floating_point_adder_tb.vhd" "3eb2482076a60cc8ea1a42028b6c086367ccaa58" "20231008234448.229":
+  entity single_floating_point_adder_tb at 4( 125) + 0 on 37;
+  architecture single_floating_point_adder_tb_arch of single_floating_point_adder_tb at 12( 303) + 0 on 38;
