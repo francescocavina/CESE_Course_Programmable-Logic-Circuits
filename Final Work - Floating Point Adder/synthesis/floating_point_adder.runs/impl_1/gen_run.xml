@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1696907413">
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <File Type="BG-DRC" Name="floating_point_adder_VIO.drc"/>
+  <File Type="BG-BGN" Name="floating_point_adder_VIO.bgn"/>
+  <File Type="BITSTR-SYSDEF" Name="floating_point_adder_VIO.sysdef"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="floating_point_adder_VIO.ltx"/>
+  <File Type="BITSTR-MMI" Name="floating_point_adder_VIO.mmi"/>
+  <File Type="BITSTR-BMM" Name="floating_point_adder_VIO_bd.bmm"/>
+  <File Type="BITSTR-NKY" Name="floating_point_adder_VIO.nky"/>
+  <File Type="BITSTR-RBT" Name="floating_point_adder_VIO.rbt"/>
+  <File Type="BITSTR-MSK" Name="floating_point_adder_VIO.msk"/>
+  <File Type="BG-BIN" Name="floating_point_adder_VIO.bin"/>
+  <File Type="BG-BIT" Name="floating_point_adder_VIO.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="floating_point_adder_VIO_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="floating_point_adder_VIO_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="floating_point_adder_VIO_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="floating_point_adder_VIO_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="floating_point_adder_VIO_postroute_physopt.dcp"/>
+  <File Type="ROUTE-CLK" Name="floating_point_adder_VIO_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-SIMILARITY" Name="floating_point_adder_VIO_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-TIMING-RPX" Name="floating_point_adder_VIO_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-TIMING-PB" Name="floating_point_adder_VIO_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="floating_point_adder_VIO_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="floating_point_adder_VIO_route_status.pb"/>
+  <File Type="ROUTE-STATUS" Name="floating_point_adder_VIO_route_status.rpt"/>
+  <File Type="ROUTE-PWR-RPX" Name="floating_point_adder_VIO_power_routed.rpx"/>
+  <File Type="PLACE-IO" Name="floating_point_adder_VIO_io_placed.rpt"/>
+  <File Type="RDI-RDI" Name="floating_point_adder_VIO.vdi"/>
+  <File Type="PWROPT-TIMING" Name="floating_point_adder_VIO_timing_summary_pwropted.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="floating_point_adder_VIO_utilization_placed.pb"/>
+  <File Type="PHYSOPT-TIMING" Name="floating_point_adder_VIO_timing_summary_physopted.rpt"/>
+  <File Type="PWROPT-DRC" Name="floating_point_adder_VIO_drc_pwropted.rpt"/>
+  <File Type="PLACE-UTIL" Name="floating_point_adder_VIO_utilization_placed.rpt"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="floating_point_adder_VIO_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="OPT-TIMING" Name="floating_point_adder_VIO_timing_summary_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="floating_point_adder_VIO.hwdef"/>
+  <File Type="PWROPT-DCP" Name="floating_point_adder_VIO_pwropt.dcp"/>
+  <File Type="REPORTS-TCL" Name="floating_point_adder_VIO_reports.tcl"/>
+  <File Type="OPT-DCP" Name="floating_point_adder_VIO_opt.dcp"/>
+  <File Type="PLACE-DCP" Name="floating_point_adder_VIO_placed.dcp"/>
+  <File Type="PA-TCL" Name="floating_point_adder_VIO.tcl"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="floating_point_adder_VIO_methodology_drc_opted.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="floating_point_adder_VIO_incremental_reuse_pre_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="floating_point_adder_VIO_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-TIMING" Name="floating_point_adder_VIO_timing_summary_placed.rpt"/>
+  <File Type="INIT-TIMING" Name="floating_point_adder_VIO_timing_summary_init.rpt"/>
+  <File Type="OPT-DRC" Name="floating_point_adder_VIO_drc_opted.rpt"/>
+  <File Type="PLACE-CTRL" Name="floating_point_adder_VIO_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="floating_point_adder_VIO_incremental_reuse_placed.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="floating_point_adder_VIO_postplace_pwropt.dcp"/>
+  <File Type="PHYSOPT-DCP" Name="floating_point_adder_VIO_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="floating_point_adder_VIO_drc_physopted.rpt"/>
+  <File Type="ROUTE-ERROR-DCP" Name="floating_point_adder_VIO_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="floating_point_adder_VIO_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="floating_point_adder_VIO_routed_bb.dcp"/>
+  <File Type="ROUTE-DRC" Name="floating_point_adder_VIO_drc_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="floating_point_adder_VIO_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="floating_point_adder_VIO_drc_routed.pb"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="floating_point_adder_VIO_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-DRC-RPX" Name="floating_point_adder_VIO_drc_routed.rpx"/>
+  <File Type="ROUTE-PWR" Name="floating_point_adder_VIO_power_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="floating_point_adder_VIO_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-PWR-SUM" Name="floating_point_adder_VIO_power_summary_routed.pb"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PPRDIR/../sources/floating_point_adder.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../sources/floating_point_adder_VIO.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="floating_point_adder_VIO"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PPRDIR/../sources/Arty-Z7-10-Master.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018">
+      <Desc>Default settings for Implementation.</Desc>
+    </StratHandle>
+    <Step Id="init_design"/>
+    <Step Id="opt_design"/>
+    <Step Id="power_opt_design"/>
+    <Step Id="place_design"/>
+    <Step Id="post_place_power_opt_design"/>
+    <Step Id="phys_opt_design"/>
+    <Step Id="route_design"/>
+    <Step Id="post_route_phys_opt_design"/>
+    <Step Id="write_bitstream"/>
+  </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="vio_0"/>
+</GenRun>

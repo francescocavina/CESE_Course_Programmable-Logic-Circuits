@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.1 (64-bit)
+# SW Build 2188600 on Wed Apr  4 18:39:19 MDT 2018
+# IP Build 2185939 on Wed Apr  4 20:55:05 MDT 2018
+# Start of session at: Tue Oct 10 00:10:14 2023
+# Process ID: 29751
+# Current directory: /home/francesco/Desktop/floating_point_adder/synthesis/floating_point_adder.runs/impl_1
+# Command line: vivado -log floating_point_adder_VIO.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source floating_point_adder_VIO.tcl -notrace
+# Log file: /home/francesco/Desktop/floating_point_adder/synthesis/floating_point_adder.runs/impl_1/floating_point_adder_VIO.vdi
+# Journal file: /home/francesco/Desktop/floating_point_adder/synthesis/floating_point_adder.runs/impl_1/vivado.jou
+#-----------------------------------------------------------
+source floating_point_adder_VIO.tcl -notrace
