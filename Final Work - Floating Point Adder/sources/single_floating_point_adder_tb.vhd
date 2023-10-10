@@ -56,8 +56,8 @@ begin
     init_tb <= '1' after 75 ns;
 
     -- TEST CASE #01 / expected result = +3.845 (0x4076147B)
-    -- numA_tb <= "00111111101011000010100011110110" after 0 ns; -- numA_tb = +1.345           (0x3FAC28F6)
-    -- numB_tb <= "01000000001000000000000000000000" after 0 ns; -- numB_tb = +2.5             (0x40200000)
+    numA_tb <= "00111111101011000010100011110110" after 0 ns; -- numA_tb = +1.345           (0x3FAC28F6)
+    numB_tb <= "01000000001000000000000000000000" after 0 ns; -- numB_tb = +2.5             (0x40200000)
 
     -- TEST CASE #02 / expected result = +15.5434 (0x4178B1C4)
     -- numA_tb <= "01000000010001011111101001000100" after 0 ns; -- numA_tb = +3.0934          (0x4045FA44)
