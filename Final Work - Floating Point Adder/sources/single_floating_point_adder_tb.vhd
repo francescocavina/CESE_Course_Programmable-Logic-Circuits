@@ -1,16 +1,19 @@
 -- Author: Francesco Cavina <francescocavina98@gmail.com>
 -- Brief:  This is the testbench of a SINGLE floating point adder
 
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
+
 
 entity single_floating_point_adder_tb is
     -- Void entity
 end entity single_floating_point_adder_tb;
     
+
 architecture single_floating_point_adder_tb_arch of single_floating_point_adder_tb is
-    -- Declaration
+    -- DUT Component declaration
     component floating_point_adder is
         generic(
             -- Default values for single precision floating point IEEE 754
@@ -20,21 +23,23 @@ architecture single_floating_point_adder_tb_arch of single_floating_point_adder_
             SIGN_BITS:      natural := 1
         );
         port(
-            clk_i:  in  std_logic;
-            numA_i: in  std_logic_vector(PRECISION_BITS-1 downto 0);
-            numB_i: in  std_logic_vector(PRECISION_BITS-1 downto 0);
-            init_i: in  std_logic;
-            rst_i:  in  std_logic;
-            c_o:    out std_logic_vector(PRECISION_BITS-1 downto 0);
-            done_o: out std_logic
+            clk_i:  in  std_logic;                                   -- System clock                                                       / input
+            numA_i: in  std_logic_vector(PRECISION_BITS-1 downto 0); -- Floating point number A (single or double precision)               / input
+            numB_i: in  std_logic_vector(PRECISION_BITS-1 downto 0); -- Floating point number B (single or double precision)               / input
+            init_i: in  std_logic;                                   -- Set to '1' to begin addition process (then se it back to '0')      / input
+            rst_i:  in  std_logic;                                   -- Set to '1' to reset addition process (then set it back to '0')     / input
+            c_o:    out std_logic_vector(PRECISION_BITS-1 downto 0); -- Floating point result of the addition (single or double precision) / output
+            done_o: out std_logic                                    -- Flag outputs '1' when addition process has finished                / output
         );
     end component floating_point_adder;
 
+    -- Constants declaration
     constant PRECISION_BITS_tb: natural := 32; -- Single precision floating point IEEE 754
     constant EXPONENT_BITS_tb:  natural := 8;  -- Single precision floating point IEEE 754
     constant MANTISSA_BITS_tb:  natural := 23; -- Single precision floating point IEEE 754
     constant SIGN_BITS_tb:      natural := 1;  -- Single precision floating point IEEE 754
 
+    -- Testbench signals declaration
     signal clk_tb:  std_logic := '0';
     signal numA_tb: std_logic_vector(PRECISION_BITS_tb-1 downto 0) := (others => '0');
     signal numB_tb: std_logic_vector(PRECISION_BITS_tb-1 downto 0) := (others => '0');
@@ -87,23 +92,23 @@ begin
     -- numB_tb <= "11000001011000011001100110011010" after 0 ns; -- numA_tb = -14.1            (0xC161999A)
 
     -- TEST CASE #10 / expected result = +104.356833617123 (0x42D0B6B3)
-    numA_tb <= "01000001110011001000101000110111" after 0 ns; -- numA_tb = +25.567487939    (0x41CC8A37)
-    numB_tb <= "01000010100111011001010000100101" after 0 ns; -- numA_tb = +78.789345678123 (0x429D9425)
+    -- numA_tb <= "01000001110011001000101000110111" after 0 ns; -- numA_tb = +25.567487939    (0x41CC8A37)
+    -- numB_tb <= "01000010100111011001010000100101" after 0 ns; -- numA_tb = +78.789345678123 (0x429D9425)
     
     DUT: floating_point_adder
-    generic map(
-        PRECISION_BITS => PRECISION_BITS_tb,
-        EXPONENT_BITS  => EXPONENT_BITS_tb,
-        MANTISSA_BITS  => MANTISSA_BITS_tb,
-        SIGN_BITS      => SIGN_BITS_tb
-    )
-    port map(
-        clk_i  => clk_tb,
-        numA_i => numA_tb,
-        numB_i => numB_tb,
-        init_i => init_tb,
-        rst_i  => rst_tb,
-        c_o    => c_tb,
-        done_o => done_tb
-    );
+        generic map(
+            PRECISION_BITS => PRECISION_BITS_tb,
+            EXPONENT_BITS  => EXPONENT_BITS_tb,
+            MANTISSA_BITS  => MANTISSA_BITS_tb,
+            SIGN_BITS      => SIGN_BITS_tb
+        )
+        port map(
+            clk_i  => clk_tb,
+            numA_i => numA_tb,
+            numB_i => numB_tb,
+            init_i => init_tb,
+            rst_i  => rst_tb,
+            c_o    => c_tb,
+            done_o => done_tb
+        );
 end architecture single_floating_point_adder_tb_arch;

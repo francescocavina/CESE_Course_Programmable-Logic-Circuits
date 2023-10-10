@@ -1,9 +1,11 @@
 -- Author: Francesco Cavina <francescocavina98@gmail.com>
--- Brief:  This is the HW description for a floating point adder
+-- Brief:  This is the HW description for a floating point adder (single and double precision)
+
 
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
+
 
 entity floating_point_adder is
     generic(
@@ -20,25 +22,36 @@ entity floating_point_adder is
         -- SIGN_BITS:      natural := 1   -- Double precision floating point IEEE 754
     );
     port(
-        clk_i:  in  std_logic;
-        numA_i: in  std_logic_vector(PRECISION_BITS-1 downto 0);
-        numB_i: in  std_logic_vector(PRECISION_BITS-1 downto 0);
-        init_i: in  std_logic;
-        rst_i:  in  std_logic;
-        c_o:    out std_logic_vector(PRECISION_BITS-1 downto 0);
-        done_o: out std_logic
+        clk_i:  in  std_logic;                                   -- System clock                                                       / input
+        numA_i: in  std_logic_vector(PRECISION_BITS-1 downto 0); -- Floating point number A (single or double precision)               / input
+        numB_i: in  std_logic_vector(PRECISION_BITS-1 downto 0); -- Floating point number B (single or double precision)               / input
+        init_i: in  std_logic;                                   -- Set to '1' to begin addition process (then se it back to '0')      / input
+        rst_i:  in  std_logic;                                   -- Set to '1' to reset addition process (then set it back to '0')     / input
+        c_o:    out std_logic_vector(PRECISION_BITS-1 downto 0); -- Floating point result of the addition (single or double precision) / output
+        done_o: out std_logic                                    -- Flag outputs '1' when addition process has finished                / output
     );
 end entity floating_point_adder;
 
+
 architecture floating_point_adder_arch of floating_point_adder is
-    -- States
-    type STATE is (WAIT_STATE, ALIGNMENT_STATE, ADDITION_STATE, NORMALIZATION_STATE, ROUNDING_STATE, RENORMALIZATION_STATE, DONE_STATE);
+    -- States declaration for Finite State Machine
+    type STATE is (WAIT_STATE,              -- Initial state waiting for init_i input. Signs, exponents and mantissas are extracted from input numbers 
+                   ALIGNMENT_STATE,         -- Mantissas are aligned and exponents are updated
+                   ADDITION_STATE,          -- Mantissas are added
+                   NORMALIZATION_STATE,     -- Mantissas are normalized to comply with IEEE standard
+                   ROUNDING_STATE,          -- Rounding is carried out, if needed
+                   RENORMALIZATION_STATE,   -- Renormalization is carried out, if need after rounding up
+                   DONE_STATE);             -- Addition process is finished
+
     signal current_state, next_state: STATE;
 
-    -- Constants
-    constant MAX_EXPONENT: natural := 1023;
+    -- Constants declaration
+    -- Constant to increase sum_mantissa signal length, when mantissa has to be shifted
+    -- to match exponents. Maximum exponent in double precision floating point is 1023.
+    -- So in the worst case, sum_mantissa should be shiftes 1023 bits to the right.
+    constant MAX_EXPONENT: natural := 1023; 
 
-    -- Internal signals
+    -- Internal signals declaration for calculations
     signal exponent_a:       std_logic_vector(EXPONENT_BITS   downto 0) := (others => '0');
     signal exponent_b:       std_logic_vector(EXPONENT_BITS   downto 0) := (others => '0');
     signal mantissa_a:       std_logic_vector(MANTISSA_BITS+1 downto 0) := (others => '0');
@@ -48,10 +61,11 @@ architecture floating_point_adder_arch of floating_point_adder is
 
     signal mantissa_a_aux:   std_logic_vector(MANTISSA_BITS+1+MAX_EXPONENT downto 0) := (others => '0');
     signal mantissa_b_aux:   std_logic_vector(MANTISSA_BITS+1+MAX_EXPONENT downto 0) := (others => '0');
+    signal sum_mantissa_aux: std_logic_vector(MANTISSA_BITS+1+MAX_EXPONENT downto 0) := (others => '0');
     
+    -- Internal signals declaration for output result
     signal sum_exponent:     std_logic_vector(EXPONENT_BITS downto 0) := (others => '0');
     signal sum_mantissa:     std_logic_vector(MANTISSA_BITS+1+MAX_EXPONENT downto 0) := (others => '0');
-    signal sum_mantissa_aux: std_logic_vector(MANTISSA_BITS+1+MAX_EXPONENT downto 0) := (others => '0');
     signal sum_sign:         std_logic := '0';
 
 begin
@@ -72,9 +86,12 @@ begin
             done_o     <= '0';
         elsif(rising_edge(clk_i)) then
             -- If clock rising edge
+
+            -- Update state
             current_state <= next_state;
 
             case current_state is
+                --=================================================== BEGIN WAIT STATE ===================================================--
                 when WAIT_STATE =>
                     if(init_i = '1') then
                         -- Extract exponents from numbers
@@ -95,7 +112,9 @@ begin
                         -- Next state
                         next_state <= WAIT_STATE;
                     end if;   
-                    
+                --=================================================== END WAIT STATE =====================================================--
+                
+                --=================================================== BEGIN ALIGNMENT STATE ==============================================-- 
                 when ALIGNMENT_STATE =>
                     -- Check if exponents are equal
                     if(exponent_a = exponent_b) then
@@ -127,7 +146,9 @@ begin
 
                     -- Next state
                     next_state <= ADDITION_STATE;
+                --=================================================== END ALIGNMENT STATE ================================================--
                 
+                --=================================================== BEGIN ADDITION STATE ===============================================--     
                 when ADDITION_STATE =>
                     if(sign_a = sign_b) then
                         -- If signs are equal
@@ -150,7 +171,9 @@ begin
 
                     -- Next state
                     next_state <= NORMALIZATION_STATE;
+                --=================================================== END ADDITION STATE =================================================--             
 
+                --=================================================== BEGIN NORMALIZATION STATE ==========================================--     
                 when NORMALIZATION_STATE =>
                     if(unsigned(sum_mantissa) = to_unsigned(0, MANTISSA_BITS+1)) then
                         -- If sum is 0
@@ -181,8 +204,13 @@ begin
                         -- Next state
                         next_state <= ROUNDING_STATE;
                     end if;
+                --=================================================== END NORMALIZATION STATE ============================================--
 
+                --=================================================== BEGIN ROUNDING STATE ===============================================--     
                 when ROUNDING_STATE =>
+                    -- The rounding rule used here is "round to the nearest, ties to even". Namely, round to the nearest value and if the
+                    -- number fails midway, it is rounded to the nearest value with an even least significant bit (LSB).
+
                     -- Get Guard, Round and Sticky bits
                     if(mantissa_a_aux(MAX_EXPONENT-1 downto 0) = std_logic_vector(to_unsigned(0, MAX_EXPONENT-1))) then
                         -- If mantissa B was shifted
@@ -236,7 +264,9 @@ begin
 
                     -- Next state
                     next_state <= RENORMALIZATION_STATE;
-
+                --=================================================== END ROUNDING STATE =================================================--
+                
+                --=================================================== BEGIN RENORMALIZATION STATE ========================================--    
                 when RENORMALIZATION_STATE =>
                     if(sum_mantissa(MANTISSA_BITS+1+MAX_EXPONENT) = '1') then
                         -- If due to the rounding up, overflow was produced
@@ -247,7 +277,9 @@ begin
                     
                 -- Next state
                 next_state <= DONE_STATE;
-                
+                --=================================================== END RENORMALIZATION STATE ==========================================--
+
+                --=================================================== BEGIN DONE STATE ===================================================--
                 when DONE_STATE =>
                     -- Compound addition result 
                     c_o(PRECISION_BITS-1) <= sum_sign;
@@ -262,10 +294,14 @@ begin
                         -- Next state
                         next_state <= WAIT_STATE;
                     end if;
-                    
+                --=================================================== END DONE STATE =====================================================--    
+
+                --=================================================== BEGIN DEFAULT STATE ================================================--    
                 when others =>
                     -- Next state    
                     next_state <= WAIT_STATE;
+                --=================================================== END DEFAULT STATE ==================================================--        
+
             end case;
         end if;    
     end process;
