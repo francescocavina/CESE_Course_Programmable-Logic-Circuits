@@ -58,15 +58,15 @@ begin
     -- numA_tb <= "01000000010001011111101001000100" after 0 ns; -- numA_tb = +3.0934          (0x4045FA44)
     -- numB_tb <= "01000001010001110011001100110011" after 0 ns; -- numB_tb = +12.45           (0x41473333)
 
-    -- TEST CASE #03 / expected result = 1,588.23359 (0x44C6877A) (result is 0x44C68779)
-    -- numA_tb <= "01000100101001111000011110000010" after 0 ns; -- numA_tb = +1,340.23459     (0x44A78782)
-    -- numB_tb <= "01000011011101111111111110111110" after 0 ns; -- numA_tb = +247.999         (0x4377FFBE)
+    -- TEST CASE #03 / expected result = 1,588.2336119 (0x44C6877A) (result is 0x44C68779)
+    -- numA_tb <= "01000100101001111000011110000010" after 0 ns; -- numA_tb = +1,340.234619    (0x44A78782)
+    -- numB_tb <= "01000011011101111111111110111110" after 0 ns; -- numA_tb = +247.9989929     (0x4377FFBE)
 
-    -- TEST CASE #04 / expected result = +5.577 (0x40B276C9) (ERROR)
-    numA_tb <= "01000001000010010000011000100101" after 0 ns; -- numA_tb = +8.564           (0x41090625)
-    numB_tb <= "11000000001111110010101100000010" after 0 ns; -- numA_tb = -2.987           (0xC03F2B02)
+    -- TEST CASE #04 / expected result = +5.577 (0x40B276C9)
+    -- numA_tb <= "01000001000010010000011000100101" after 0 ns; -- numA_tb = +8.564           (0x41090625)
+    -- numB_tb <= "11000000001111110010101100000010" after 0 ns; -- numA_tb = -2.987           (0xC03F2B02)
 
-    -- TEST CASE #05 / expected result = +5.577 (0x40B276C9) (ERROR)
+    -- TEST CASE #05 / expected result = +5.577 (0x40B276C9) (result is 0x40B276CA)
     -- numA_tb <= "11000000001111110010101100000010" after 0 ns; -- numA_tb = -2.987           (0xC03F2B02)
     -- numB_tb <= "01000001000010010000011000100101" after 0 ns; -- numA_tb = +8.564           (0x41090625)
 
@@ -87,8 +87,8 @@ begin
     -- numB_tb <= "11000001011000011001100110011010" after 0 ns; -- numA_tb = -14.1            (0xC161999A)
 
     -- TEST CASE #10 / expected result = +104.356833617123 (0x42D0B6B3)
-    -- numA_tb <= "11000101000010110101111001101000" after 0 ns; -- numA_tb = +25.567487939    (0x41CC8A37)
-    -- numB_tb <= "01000010100111011001010000100101" after 0 ns; -- numA_tb = +78.789345678123 (0x429D9425)
+    numA_tb <= "01000001110011001000101000110111" after 0 ns; -- numA_tb = +25.567487939    (0x41CC8A37)
+    numB_tb <= "01000010100111011001010000100101" after 0 ns; -- numA_tb = +78.789345678123 (0x429D9425)
     
     DUT: floating_point_adder
     generic map(

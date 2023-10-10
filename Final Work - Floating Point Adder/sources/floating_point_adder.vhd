@@ -78,8 +78,8 @@ begin
                 when WAIT_STATE =>
                     if(init_i = '1') then
                         -- Extract exponents from numbers
-                        exponent_a <= '0' & numA_i(PRECISION_BITS-1-SIGN_BITS downto PRECISION_BITS-1-SIGN_BITS-EXPONENT_BITS+1);
-                        exponent_b <= '0' & numB_i(PRECISION_BITS-1-SIGN_BITS downto PRECISION_BITS-1-SIGN_BITS-EXPONENT_BITS+1);
+                        exponent_a <= '0' & numA_i(PRECISION_BITS-1-SIGN_BITS downto PRECISION_BITS-SIGN_BITS-EXPONENT_BITS);
+                        exponent_b <= '0' & numB_i(PRECISION_BITS-1-SIGN_BITS downto PRECISION_BITS-SIGN_BITS-EXPONENT_BITS);
 
                         -- Extract mantissas from numbers
                         mantissa_a <= "01" & numA_i(PRECISION_BITS-1-SIGN_BITS-EXPONENT_BITS downto 0);
@@ -101,26 +101,28 @@ begin
                     if(exponent_a = exponent_b) then
                         sum_exponent <= exponent_a;
                         
-                        mantissa_a_aux(MANTISSA_BITS+1+MAX_EXPONENT downto MANTISSA_BITS+1+MAX_EXPONENT-MANTISSA_BITS-1) <= mantissa_a; 
-                        mantissa_b_aux(MANTISSA_BITS+1+MAX_EXPONENT downto MANTISSA_BITS+1+MAX_EXPONENT-MANTISSA_BITS-1) <= mantissa_b; 
+                        mantissa_a_aux(MANTISSA_BITS+1+MAX_EXPONENT downto MAX_EXPONENT) <= mantissa_a; 
+                        mantissa_b_aux(MANTISSA_BITS+1+MAX_EXPONENT downto MAX_EXPONENT) <= mantissa_b; 
                     elsif(exponent_a > exponent_b) then
                         -- Calculate difference between exponents
                         exponents_diff := unsigned(exponent_a) - unsigned(exponent_b);
 
                         sum_exponent <= exponent_a;
-                        mantissa_a_aux(MANTISSA_BITS+1+MAX_EXPONENT downto MANTISSA_BITS+1+MAX_EXPONENT-MANTISSA_BITS-1) <= mantissa_a; 
+                        mantissa_a_aux(MANTISSA_BITS+1+MAX_EXPONENT downto MAX_EXPONENT) <= mantissa_a; 
                         
-                        -- Down-shift exponent B by exponents difference
-                        mantissa_b_aux(MANTISSA_BITS+1+MAX_EXPONENT-to_integer(exponents_diff) downto MANTISSA_BITS+1+MAX_EXPONENT-MANTISSA_BITS-1-to_integer(exponents_diff)) <= mantissa_b; 
+                        -- Down-shift mantissa B by exponents difference
+                        mantissa_b_aux <= (others => '0');
+                        mantissa_b_aux(MANTISSA_BITS+1+MAX_EXPONENT-to_integer(exponents_diff) downto MAX_EXPONENT-to_integer(exponents_diff)) <= mantissa_b; 
                     elsif(exponent_b > exponent_a) then
                         -- Calculate difference between exponents
                         exponents_diff := unsigned(exponent_b) - unsigned(exponent_a);
 
                         sum_exponent <= exponent_b;
-                        mantissa_b_aux(MANTISSA_BITS+1+MAX_EXPONENT downto MANTISSA_BITS+1+MAX_EXPONENT-MANTISSA_BITS-1) <= mantissa_b; 
+                        mantissa_b_aux(MANTISSA_BITS+1+MAX_EXPONENT downto MAX_EXPONENT) <= mantissa_b; 
 
-                        -- Down-shift exponent A by exponents difference
-                        mantissa_a_aux(MANTISSA_BITS+1+MAX_EXPONENT-to_integer(exponents_diff) downto MANTISSA_BITS+1+MAX_EXPONENT-MANTISSA_BITS-1-to_integer(exponents_diff)) <= mantissa_a;
+                        -- Down-shift mantissa A by exponents difference
+                        mantissa_a_aux <= (others => '0');
+                        mantissa_a_aux(MANTISSA_BITS+1+MAX_EXPONENT-to_integer(exponents_diff) downto MAX_EXPONENT-to_integer(exponents_diff)) <= mantissa_a;
                     end if;
 
                     -- Next state
@@ -162,7 +164,7 @@ begin
                         -- If mantissas sum produces overflow
                         -- Down-shift mantissas sum by one
                         sum_exponent  <= std_logic_vector(unsigned(sum_exponent)+1);
-                        sum_mantissa  <= '0' & sum_mantissa(MANTISSA_BITS+1+MAX_EXPONENT downto MAX_EXPONENT+1);
+                        sum_mantissa  <= '0' & sum_mantissa(MANTISSA_BITS+1+MAX_EXPONENT downto 1);
 
                         -- Next state
                         next_state <= ROUNDING_STATE;
@@ -170,7 +172,7 @@ begin
                         -- If mantissas sum most significant bit is not '0'
                         -- Up-shift mantissas sum by one
                         sum_exponent  <= std_logic_vector(unsigned(sum_exponent)-1);
-                        sum_mantissa  <= sum_mantissa(MANTISSA_BITS+MAX_EXPONENT downto MAX_EXPONENT) & '0';
+                        sum_mantissa  <= sum_mantissa(MANTISSA_BITS+MAX_EXPONENT downto 0) & '0';
 
                         -- Next state
                         next_state <= NORMALIZATION_STATE;
@@ -181,24 +183,23 @@ begin
                     end if;
 
                 when ROUNDING_STATE =>
-
                     -- Get Guard, Round and Sticky bits
-                    if(mantissa_a_aux(MANTISSA_BITS+1+MAX_EXPONENT-MANTISSA_BITS-2 downto 0) = std_logic_vector(to_unsigned(0, MANTISSA_BITS+1+MAX_EXPONENT-MANTISSA_BITS-2))) then
+                    if(mantissa_a_aux(MAX_EXPONENT-1 downto 0) = std_logic_vector(to_unsigned(0, MAX_EXPONENT-1))) then
                         -- If mantissa B was shifted
-                        guard_bit  := unsigned(mantissa_b_aux(MANTISSA_BITS+1+MAX_EXPONENT-MANTISSA_BITS-2 downto MANTISSA_BITS+1+MAX_EXPONENT-MANTISSA_BITS-2));
-                        round_bit  := unsigned(mantissa_b_aux(MANTISSA_BITS+1+MAX_EXPONENT-MANTISSA_BITS-3 downto MANTISSA_BITS+1+MAX_EXPONENT-MANTISSA_BITS-3));
+                        guard_bit  := unsigned(mantissa_b_aux(MAX_EXPONENT-1 downto MAX_EXPONENT-1));
+                        round_bit  := unsigned(mantissa_b_aux(MAX_EXPONENT-2 downto MAX_EXPONENT-2));
 
-                        if(to_integer(unsigned(mantissa_b_aux(MANTISSA_BITS+1+MAX_EXPONENT-MANTISSA_BITS-4 downto MANTISSA_BITS+1+MAX_EXPONENT-MANTISSA_BITS-to_integer(exponents_diff)))) >= 1) then
+                        if(to_integer(unsigned(mantissa_b_aux(MAX_EXPONENT-3 downto 1+MAX_EXPONENT-to_integer(exponents_diff)))) >= 1) then
                             sticky_bit := to_unsigned(1, 1);
                         else 
                             sticky_bit := to_unsigned(0, 1);
                         end if;    
                     else
                         -- If mantissa A was shifted
-                        guard_bit  := unsigned(mantissa_a_aux(MANTISSA_BITS+1+MAX_EXPONENT-MANTISSA_BITS-2 downto MANTISSA_BITS+1+MAX_EXPONENT-MANTISSA_BITS-2));
-                        round_bit  := unsigned(mantissa_a_aux(MANTISSA_BITS+1+MAX_EXPONENT-MANTISSA_BITS-3 downto MANTISSA_BITS+1+MAX_EXPONENT-MANTISSA_BITS-3));
+                        guard_bit  := unsigned(mantissa_a_aux(MAX_EXPONENT-1 downto MAX_EXPONENT-1));
+                        round_bit  := unsigned(mantissa_a_aux(MAX_EXPONENT-2 downto MAX_EXPONENT-2));
 
-                        if(to_integer(unsigned(mantissa_a_aux(MANTISSA_BITS+1+MAX_EXPONENT-MANTISSA_BITS-4 downto MANTISSA_BITS+1+MAX_EXPONENT-MANTISSA_BITS-to_integer(exponents_diff)))) >= 1) then
+                        if(to_integer(unsigned(mantissa_a_aux(MAX_EXPONENT-3 downto 1+MAX_EXPONENT-to_integer(exponents_diff)))) >= 1) then
                             sticky_bit := to_unsigned(1, 1);
                         else 
                             sticky_bit := to_unsigned(0, 1);
@@ -207,22 +208,29 @@ begin
 
                     -- Round up or down based on Guard, Round and Sticky bits
                     if(to_integer(guard_bit) = 0) then
+                        -- If Guard bit is 0
                         -- Round down = do nothing
 
                     elsif(to_integer(round_bit or sticky_bit) = 0) then
-                        if(sum_mantissa(MANTISSA_BITS+1+MAX_EXPONENT-MANTISSA_BITS-1) = '0') then
+                        -- If Guard bit is 1 and (Round bit or Stikcy bit) is 0
+                        -- It is a tie, so rounding up or down depends whether the
+                        -- mantissa is even or odd
+                        if(sum_mantissa(MAX_EXPONENT) = '0') then
+                            -- If mantissa is even
                             -- Round down = do nothing
 
                         else
+                            -- If mantissa is odd
                             -- Round up
                             sum_mantissa_aux <= (others => '0');
-                            sum_mantissa_aux(MANTISSA_BITS+1+MAX_EXPONENT-MANTISSA_BITS-1) <= '1';
+                            sum_mantissa_aux(MAX_EXPONENT) <= '1';
                             sum_mantissa <= std_logic_vector(unsigned(sum_mantissa) + unsigned(sum_mantissa_aux));
                         end if;    
                     else
+                        -- If Guard bit is 1 and (Round bit or Stikcy bit) is 1
                         -- Round up
                         sum_mantissa_aux <= (others => '0');
-                        sum_mantissa_aux(MANTISSA_BITS+1+MAX_EXPONENT-MANTISSA_BITS-1) <= '1';
+                        sum_mantissa_aux(MAX_EXPONENT) <= '1';
                         sum_mantissa <= std_logic_vector(unsigned(sum_mantissa) + unsigned(sum_mantissa_aux));
                     end if;    
 
@@ -231,10 +239,10 @@ begin
 
                 when RENORMALIZATION_STATE =>
                     if(sum_mantissa(MANTISSA_BITS+1+MAX_EXPONENT) = '1') then
-                        -- If mantissas sum produces overflow
+                        -- If due to the rounding up, overflow was produced
                         -- Down-shift mantissas sum by one
                         sum_exponent  <= std_logic_vector(unsigned(sum_exponent)+1);
-                        sum_mantissa  <= '0' & sum_mantissa(MANTISSA_BITS+1+MAX_EXPONENT downto MAX_EXPONENT+1);
+                        sum_mantissa  <= '0' & sum_mantissa(MANTISSA_BITS+1+MAX_EXPONENT downto 1);
                     end if;
                     
                 -- Next state
@@ -243,7 +251,7 @@ begin
                 when DONE_STATE =>
                     -- Compound addition result 
                     c_o(PRECISION_BITS-1) <= sum_sign;
-                    c_o(PRECISION_BITS-1-SIGN_BITS downto PRECISION_BITS-1-SIGN_BITS-EXPONENT_BITS+1) <= sum_exponent(EXPONENT_BITS-1 downto 0);
+                    c_o(PRECISION_BITS-1-SIGN_BITS downto PRECISION_BITS-SIGN_BITS-EXPONENT_BITS) <= sum_exponent(EXPONENT_BITS-1 downto 0);
                     c_o(PRECISION_BITS-1-SIGN_BITS-EXPONENT_BITS downto 0) <= sum_mantissa(MANTISSA_BITS-1+MAX_EXPONENT downto MAX_EXPONENT);
 
                     -- Flag that addition is done
