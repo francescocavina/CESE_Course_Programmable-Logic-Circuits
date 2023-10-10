@@ -182,7 +182,7 @@ begin
                         sum_sign     <= '0';
 
                         -- Next state
-                        next_state <= ROUNDING_STATE;
+                        next_state <= DONE_STATE;
                     elsif(sum_mantissa(MANTISSA_BITS+1+MAX_EXPONENT) = '1') then
                         -- If mantissas sum produces overflow
                         -- Down-shift mantissas sum by one

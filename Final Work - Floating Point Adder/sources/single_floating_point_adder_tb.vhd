@@ -60,7 +60,7 @@ begin
     numB_tb <= "01000000001000000000000000000000" after 0 ns; -- numB_tb = +2.5             (0x40200000)
 
     -- TEST CASE #02 / expected result = +15.5434 (0x4178B1C4)
-    -- numA_tb <= "01000000010001011111101001000100" after 0 ns; -- numA_tb = +3.0934          (0x4045FA44)
+    -- numA_tb <= "01000000010001011111101001000100" after 0 ns; -- numA_tb = +3.0934          (La )
     -- numB_tb <= "01000001010001110011001100110011" after 0 ns; -- numB_tb = +12.45           (0x41473333)
 
     -- TEST CASE #03 / expected result = 1,588.2336119 (0x44C6877A) (result is 0x44C68779)
