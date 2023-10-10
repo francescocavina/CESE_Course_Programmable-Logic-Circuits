@@ -1,5 +1,5 @@
 -- Author: Francesco Cavina <francescocavina98@gmail.com>
--- Brief:  This is the testbench of a DOUBLE floating point adder
+-- Brief:  This is the testbench of a DOUBLE precision floating point adder
 
 
 library IEEE;
